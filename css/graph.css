@@ -1,0 +1,128 @@
+/* =====================================================================
+   graph.css — homepage coordinate plane. Colors come from base.css.
+   ===================================================================== */
+html, body.graph-page { height: 100%; overflow: hidden; }
+
+.graph-nav { position: fixed; inset: 0; }
+
+#graph {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  touch-action: manipulation;
+}
+
+/* Grid, axes, ticks */
+.grid line { stroke: var(--color-grid); stroke-width: 1; }
+.axes line { stroke: var(--color-axis); stroke-width: 1.25; }
+.axis-arrow { fill: none; stroke: var(--color-axis); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ticks line { stroke: var(--color-axis); stroke-width: 1; }
+.tick-label, .axis-name {
+  fill: var(--color-text-muted);
+  font-family: var(--font-math);
+  font-size: var(--tick-size);
+}
+.axis-name, .origin-label { font-size: 13px; font-style: italic; fill: var(--color-axis); }
+
+/* Parabola */
+.curve {
+  fill: none;
+  stroke: var(--color-curve);
+  stroke-width: var(--curve-width);
+  stroke-linecap: round;
+}
+
+/* Navigation points */
+.nav-point { cursor: pointer; outline: none; }
+.hit-area { fill: transparent; }
+.point {
+  fill: var(--color-point);
+  /* thin background-colored ring separates the point from the curve */
+  stroke: var(--color-bg);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 160ms ease;
+}
+.vertex-ring {
+  fill: var(--color-bg);
+  stroke: var(--color-point);
+  stroke-width: 1.25;
+  opacity: 0.6;
+}
+.focus-ring {
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 2;
+  opacity: 0;
+}
+.nav-label {
+  fill: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--label-size);
+  font-weight: 500;
+  dominant-baseline: middle;
+  /* dark outline keeps labels readable over grid lines */
+  paint-order: stroke;
+  stroke: var(--color-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  transition: fill 160ms ease;
+}
+.nav-sub {
+  fill: var(--color-text-muted);
+  font-family: var(--font-math);
+  font-size: 11px;
+  dominant-baseline: middle;
+  paint-order: stroke;
+  stroke: var(--color-bg);
+  stroke-width: 4px;
+}
+
+/* Slightly smaller labels on phones */
+.is-narrow .nav-label { font-size: var(--label-size-small); }
+.is-narrow .is-vertex .nav-label { font-size: var(--vertex-label-size-small); }
+.is-vertex .nav-label { font-size: var(--vertex-label-size); font-weight: 600; fill: var(--color-point); }
+
+/* Hover only on devices that really hover (not touch screens) */
+@media (hover: hover) {
+  .nav-point:hover .point { transform: scale(1.35); }
+  .nav-point:hover .nav-label { fill: var(--color-point); }
+  .is-vertex:hover .nav-label { fill: var(--color-text); }
+}
+.nav-point:focus-visible .point { transform: scale(1.35); }
+.nav-point:focus-visible .focus-ring { opacity: 1; }
+.nav-point:focus-visible .nav-label { fill: var(--color-point); }
+
+/* One-time draw animation (disabled by prefers-reduced-motion in base.css) */
+.is-animated .curve {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-curve var(--draw-duration, 1400ms) ease-in-out forwards;
+}
+.is-animated .nav-point {
+  animation: point-in 360ms ease-out both;
+  animation-delay: var(--delay, 0ms);
+}
+@keyframes draw-curve { to { stroke-dashoffset: 0; } }
+@keyframes point-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Equation + coordinate readout, bottom-left */
+.readout {
+  position: fixed;
+  left: 16px;
+  bottom: 14px;
+  margin: 0;
+  font-family: var(--font-math);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+.readout span { display: block; min-height: 1.5em; }
+#readout-equation { color: var(--color-curve); }
+
+/* Shown only if JavaScript is off */
+.noscript-nav { padding: 24px 16px; }
+.noscript-nav li { margin: 6px 0; }

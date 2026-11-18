@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio · Graph</title>
+  <meta name="description" content="A personal portfolio presented as points on a parabola.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/graph.css">
+</head>
+<body class="graph-page">
+  <main>
+    <h1 class="visually-hidden">Portfolio sections</h1>
+    <nav class="graph-nav" aria-label="Portfolio sections">
+      <!-- The graph is drawn by js/graph.js using the points in js/config.js -->
+      <svg id="graph" tabindex="-1" focusable="false" role="group" aria-labelledby="graph-title graph-desc">
+        <title id="graph-title">Coordinate plane with a parabola</title>
+        <desc id="graph-desc">Seven section links are plotted from left to right on the parabola y = x² − 2. About sits at its vertex, two units below the origin.</desc>
+      </svg>
+    </nav>
+
+    <p class="readout" id="readout" aria-hidden="true">
+      <span id="readout-equation">y = x² − 2</span>
+      <span id="readout-point"></span>
+    </p>
+
+    <noscript>
+      <ul class="noscript-nav">
+        <li><a href="social-media.html">Social Media</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </noscript>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/curve.js"></script>
+  <script src="js/graph.js"></script>
+</body>
+</html>

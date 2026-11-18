@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About · Bekzod Rustamov</title>
+  <meta name="description" content="Bekzod Rustamov: gap-year student with a focus on mathematics and economics, and an e-commerce seller.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/page.css">
+</head>
+<body class="inner-page" data-page="about.html">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="back-link" href="index.html"><span class="arrow" aria-hidden="true">&larr;</span> Back to Graph</a>
+      <p class="topbar-meta" aria-hidden="true" data-equation>y = x² − 2</p>
+    </div>
+  </header>
+
+  <main id="main" class="container page-main">
+
+    <!-- PROFILE: name, role, one-sentence summary, buttons, optional photo -->
+    <section class="profile" aria-labelledby="profile-name">
+      <div class="profile-text">
+        <p class="eyebrow"><span class="point-name">P₄</span> = <span data-coords>(0, −2)</span> · About · vertex</p>
+        <h1 id="profile-name">Bekzod Rustamov</h1>
+        <p class="profile-role">Gap-year student · Mathematics &amp; Economics</p>
+        <p class="profile-summary">Preparing for university, focused on mathematics and economics, with two and a half years of experience running my own e-commerce business.</p>
+        <div class="profile-actions">
+          <a class="button button-primary" href="contact.html">Get in touch <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="button" href="projects.html">View projects</a>
+        </div>
+      </div>
+
+      <!-- PHOTO (optional): save a portrait as images/photo.jpg and it appears here.
+           Until then, the initials are shown. -->
+      <figure class="profile-photo">
+        <img src="images/photo.jpg" alt="Portrait of Bekzod Rustamov" width="640" height="640"
+             onerror="this.parentNode.classList.add('is-empty'); this.remove();">
+        <span class="profile-initials" aria-hidden="true">BR</span>
+      </figure>
+    </section>
+
+    <!-- HIGHLIGHTS: three short facts -->
+    <dl class="highlights">
+      <div class="highlight">
+        <dt><span class="highlight-index" aria-hidden="true">01</span> Academics</dt>
+        <dd>Mathematics and economics</dd>
+      </div>
+      <div class="highlight">
+        <dt><span class="highlight-index" aria-hidden="true">02</span> Work</dt>
+        <dd>2.5 years running my own e-commerce project</dd>
+      </div>
+      <div class="highlight">
+        <dt><span class="highlight-index" aria-hidden="true">03</span> Sports</dt>
+        <dd>6 years of taekwondo · 1st dan black belt</dd>
+      </div>
+    </dl>
+
+    <!-- INTERESTS: short tags -->
+    <div class="profile-tags">
+      <h2 class="profile-tags-title">Interests</h2>
+      <ul class="tag-list">
+        <li class="tag">Mathematics</li>
+        <li class="tag">Economics</li>
+        <li class="tag">Data Analytics</li>
+        <li class="tag">Financial Technology</li>
+        <li class="tag">Entrepreneurship</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="container page-footer">
+    <nav class="pager" aria-label="Neighboring points on the curve">
+      <a class="pager-link prev" href="experience.html" rel="prev"><span class="pager-dir">&larr; P₃</span><span class="pager-title">Experience</span></a>
+      <a class="pager-link next" href="projects.html" rel="next"><span class="pager-dir">P₅ &rarr;</span><span class="pager-title">Projects</span></a>
+    </nav>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/curve.js"></script>
+  <script src="js/page.js"></script>
+</body>
+</html>

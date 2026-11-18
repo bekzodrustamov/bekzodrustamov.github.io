@@ -1,0 +1,73 @@
+/* =====================================================================
+   base.css — design tokens and shared styles for every page.
+   Change colors, fonts and sizes here.
+   ===================================================================== */
+:root {
+  /* Colors */
+  --color-bg: #101827;
+  --color-grid: #2B394F;
+  --color-axis: #A8B8D0;
+  --color-curve: #76B4F2;
+  --color-point: #FFC477;
+  --color-text: #F2F6FC;
+  --color-text-muted: #8E9DB5;
+  --color-surface: #16213A;
+
+  /* Fonts (system fallbacks if the web fonts do not load) */
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-math: "JetBrains Mono", ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
+  /* Sizes */
+  --label-size: 15px;
+  --label-size-small: 14px;
+  --vertex-label-size: 17px;
+  --vertex-label-size-small: 16px;
+  --curve-width: 2px;
+  --tick-size: 11px;
+  --radius: 10px;
+  --page-width: 760px;     /* max content width on inner pages */
+  --focus-ring: 2px solid var(--color-point);
+
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: var(--color-curve); }
+
+:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
+
+.mono { font-family: var(--font-math); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Very small phones (e.g. 320 px wide): slightly smaller graph labels */
+@media (max-width: 359px) {
+  :root { --label-size-small: 13px; --vertex-label-size-small: 15px; }
+}
